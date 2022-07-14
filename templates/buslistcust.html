@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bus List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<p style="float: right;">Hi, <i>{{request.user}}</i></p>
+	</div>
+	<div class="container">
+		<button class="btn btn-info"style="float: right"><a href="{% url 'logout' %}">Logout</a></button>
+	</div>
+	<div class='container'>
+		<h2>Bus</h2>
+		<hr>
+		<table class='table table-dark'>
+			<tr>
+				<th>Bus Code</th>
+				<th>Source</th>
+				<th>Date of Departure</th>
+				<th>Time of Departure</th>
+				<th>Destination</th>
+				<th>Date of Arrival</th>
+				<th>Time of Arrival</th>
+			</tr>
+			{% for i in buslist %}
+			<tr>
+				<td><a href="{% url 'busdetail' i.id %}">{{i.bus_code}}</a></td>
+				<td>{{i.source}}</td>
+				<td>{{i.departure_date}}</td>
+				<td>{{i.departure_time}}</td>
+				<td>{{i.destination}}</td>
+				<td>{{i.arrival_date}}</td>
+				<td>{{i.arrival_time}}</td>
+				{% if user.is_authenticated %}
+				
+				<td><button class="btn btn-dark"><a href="{% url 'busbook' i.id %}">Book Now</a></button></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+		
+</body>
+</html>

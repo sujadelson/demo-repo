@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Booking Details</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<p style="float: right;">Hi, <i>{{request.user}}</i></p>
+	</div>
+	<div class="container">
+		<button class="btn btn-info"style="float: right"><a href="{% url 'logout' %}">Logout</a></button>
+	</div>
+	<div class="container">
+		<h2>{{bus}} : {{source}} to {{destination}}</h2>
+		
+	</div>
+	<div class='container'>
+		<table class='table'>
+			<!-- <tr>
+				<th>User: </th>
+				<td>{{user}}</td>
+			</tr> -->
+			<tr>
+				<th>Bus</th>
+				<td>{{bus}}</td>
+			</tr>
+			<tr>
+				<th>From</th>
+				<td>{{source}}</td>
+			</tr>
+			<tr>
+				<th>Departure Date</th>
+				<td>{{d_date}}</td>
+			</tr>
+			<tr>
+				<th>Departure Time</th>
+				<td>{{d_time}}</td>
+			</tr>
+			<tr>
+				<th>To</th>
+				<td>{{destination}}</td>
+			</tr>
+			<tr>
+				<th>Arrival Date</th>
+				<td>{{a_date}}</td>
+			</tr>
+			<tr>
+				<th>Arrival Time</th>
+				<td>{{a_time}}</td>
+			</tr>
+			<tr>
+				<th>No: of Seats</th>
+				<td>{{no_of_seat}}</td>
+			</tr>
+			<tr>
+				<th>Bus Type</th>
+				<td>{{bus_type}}</td>
+			</tr>
+			<tr>
+				<th>Price</th>
+				<td>{{price}}</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<center><h3>Have a nice journey....!!!!!</h3></center>
+	</div>
+	
+</body>
+</html>

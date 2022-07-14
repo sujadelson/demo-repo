@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Booking History</title>
+	<meta charset="utf-8">
+	<title>Bus List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<button class="btn btn-info"style="float: right"><a href="{% url 'logout' %}">Logout</a></button>
+	</div>
+	<div class="container">
+		<h2>Booking History</h2>
+	</div>
+	<hr>
+<div class="container">
+<table class="table table-dark">
+	<tr>
+		<th>Bus</th>
+		<th>Source</th>
+		<th>Destination</th>
+		<th>Bus Type</th>
+		<th>No: of Seats</th>
+		<th>Price</th>
+		<th>Date</th>
+	</tr>
+	{% for i in bookings %}
+	<tr>
+		<td>{{ i.bus}}</td>
+		<td>{{ i.source}}</td>
+		<td>{{ i.destination}}</td>
+		<td>{{ i.bus_type}}</td>
+		<td>{{ i.no_of_seat}}</td>
+		<td>{{ i.price}}</td>
+		<td>{{ i.created_on}}</td>
+	</tr>
+	{% endfor %}
+	</table>
+	
+	</div>	
+</body>
+</html>
